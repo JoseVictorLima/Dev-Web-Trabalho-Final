@@ -5,8 +5,21 @@
       <!-- <router-link to="/about">About</router-link> -->
     </div>
     <router-view/>
+    <custom-footer></custom-footer>
   </div>
 </template>
+
+<script>
+// @ is an alias to /src
+import CustomFooter from './components/Footer.vue'
+// import HelloWorld from '@/components/HelloWorld.vue'
+
+export default {
+  components: {
+    CustomFooter
+  }
+}
+</script>
 
 <style>
 #app {
@@ -15,6 +28,7 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background-color: yellowgreen;
 }
 
 #nav {
