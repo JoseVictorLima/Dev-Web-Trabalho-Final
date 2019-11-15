@@ -1,16 +1,16 @@
 <template>
     <div>
         <div class="menu-container row">
-            <div class="col-2 center">
-                <a class="danger">Home</a>
+            <div class="col-2 flex-div">
+                <span class="hidden-link middler" @click="redirect('home')"><b>Home</b></span>
             </div>
-            <div class="col-2 center">
-                <a class="danger">About</a>
+            <div class="col-2 flex-div">
+                <span class="hidden-link middler" @click="redirect('sobre')"><b>About</b></span>
             </div>
-            <div class="col-2 center">
-                <a class="danger">Login</a>
+            <div class="col-2 flex-div">
+                <span class="hidden-link middler" @click="redirect('login')"><b>Login</b></span>
             </div>
-            <div class="col-6 image-end">
+            <div class="col-6 image-div">
                 <div class="photo-container">
                     <img src="../assets/img/impmon_account_photo.png" alt="" height="100%" width="100%" class="circular-photo">
                 </div>
@@ -19,28 +19,36 @@
     </div>
 </template>
 <script>
-
+import router from "../router/index"
+export default {
+    methods:{
+        redirect(path){
+            if(path=='home') router.push('/')
+            else router.push(`/${path}`)
+        }
+    }
+}
 </script>
 <style>
 .menu-container{
+    display: flex;
     background-color: rgb(255, 195, 116);
-    margin: 1%;
+    margin: 0% 1% 0% 1%;
     padding: 2%;
 }
-.center{
-    vertical-align: middle;
-    text-align: center;
+
+.flex-div{
+    display: flex;
+    align-items: center;
 }
 
-.image-end{
-    justify-content: flex-e nd;
+.image-div{
+    display: flex;
+    justify-content: flex-end;
 }
+
 .photo-container{
     max-width: 100px;
     max-height: 100px;
-}
-
-.circular-photo{
-    border-radius: 50%;
 }
 </style>

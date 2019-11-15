@@ -1,5 +1,7 @@
 # project
 
+# Existe a possibilidade de aparecer um bug visual quando sair da tela de login par outras 
+
 ## Project setup
 ```
 npm install

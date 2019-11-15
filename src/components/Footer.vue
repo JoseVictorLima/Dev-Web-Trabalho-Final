@@ -1,33 +1,33 @@
 <template>
     <div class="background-footer row">
         <div class="col-3">
-            <a href="">Opção 1</a>
+            <a href="#">Opção 1</a>
             <br>
-            <a href="">Opção 2</a>
+            <a href="#">Opção 2</a>
             <br>
-            <a href="">Opção 3</a>
+            <a href="#">Opção 3</a>
             <br>
-            <a href="">Opção 4</a>
-            <br>
-        </div>
-        <div class="col-3">
-            <a href="">Opção 5</a>
-            <br>
-            <a href="">Opção 6</a>
-            <br>
-            <a href="">Opção 7</a>
-            <br>
-            <a href="">Opção 8</a>
+            <a href="#">Opção 4</a>
             <br>
         </div>
         <div class="col-3">
-            <a href="">Opção 9</a>
+            <a href="#">Opção 5</a>
             <br>
-            <a href="">Opção 10</a>
+            <a href="#">Opção 6</a>
             <br>
-            <a href="">Opção 11</a>
+            <a href="#">Opção 7</a>
             <br>
-            <a href="">Opção 12</a>
+            <a href="#">Opção 8</a>
+            <br>
+        </div>
+        <div class="col-3">
+            <a href="#">Opção 9</a>
+            <br>
+            <a href="#">Opção 10</a>
+            <br>
+            <a href="#">Opção 11</a>
+            <br>
+            <a href="#">Opção 12</a>
             <br>
         </div>
     </div>

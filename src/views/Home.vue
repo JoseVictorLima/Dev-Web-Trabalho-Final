@@ -1,5 +1,6 @@
 <template >
   <div class="home">
+      <br>
       <Menu></Menu>
       <br>
       <div class="row container">
@@ -72,13 +73,6 @@ export default {
   background-color: rgb(250, 219, 84);
   margin: 2% 3% 2% 3%;
   padding: 1%;
-}
-
-.container{
-  background-color: rgba(255, 255, 255, 0.322);
-  margin: 1%;
-  max-width: 90%;
-  /* max-height: 90%; */
 }
 
 .container-special h4{

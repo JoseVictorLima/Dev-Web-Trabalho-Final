@@ -1,0 +1,39 @@
+/*< background Section */
+.background{
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../img/background.jpg")
+}
+/*< background Section */
+
+/*< hidden-link Section */
+.hidden-link{
+    color: rgb(41, 126, 41);
+}
+
+.hidden-link:hover{
+    color: rgb(22, 202, 22);
+    cursor: pointer;
+}
+
+/* hidden-link Section >*/
+
+/*< circular-photo Section */
+
+.circular-photo{
+    border-radius: 50%;
+}
+
+/* circular-photo Section >*/
+
+/*< container Section */
+
+.container{
+    background-color: rgba(255, 255, 255, 0.774);
+    margin: 1%;
+    max-width: 98%;
+    /* max-height: 90%; */
+  }
+
+  /* container Section >*/
