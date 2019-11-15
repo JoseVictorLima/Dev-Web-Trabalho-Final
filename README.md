@@ -1,6 +1,6 @@
 # project
 
-# Existe a possibilidade de aparecer um bug visual quando sair da tela de login par outras 
+# Existe a possibilidade de aparecer um bug visual quando sair da tela de login para outras 
 
 ## Project setup
 ```
