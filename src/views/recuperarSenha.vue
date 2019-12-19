@@ -68,37 +68,37 @@
 .form .register-form {
   display: none;
 }
-.container {
+.rec-container {
   position: relative;
   z-index: 1;
   max-width: 300px;
   margin: 0 auto;
 }
-.container:before, .container:after {
+.rec-container:before, .rec-container:after {
   content: "";
   display: block;
   clear: both;
 }
-.container .info {
+.rec-container .info {
   margin: 50px auto;
   text-align: center;
 }
-.container .info h1 {
+.rec-container .info h1 {
   margin: 0 0 15px;
   padding: 0;
   font-size: 36px;
   font-weight: 300;
   color: #1a1a1a;
 }
-.container .info span {
+.rec-container .info span {
   color: #4d4d4d;
   font-size: 12px;
 }
-.container .info span a {
+.rec-container .info span a {
   color: #000000;
   text-decoration: none;
 }
-.container .info span .fa {
+.rec-container .info span .fa {
   color: #EF3B3A;
 }
 body {

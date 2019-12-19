@@ -28,7 +28,19 @@ const routes = [
     path: '/recuperarsenha',
     name: 'recuperarsenha',
     component: () => import('../views/recuperarSenha.vue')
-  }
+  },
+
+  {
+    path: '/receita',
+    name: 'receita',
+    component: () => import('../views/Receita.vue')
+  },
+
+  {
+    path: '/receita/:id',
+    name: 'receita',
+    component: () => import('../views/Receita.vue')
+  },
 ]
 
 const router = new VueRouter({
