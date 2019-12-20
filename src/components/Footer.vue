@@ -1,35 +1,20 @@
 <template>
     <div class="background-footer row">
         <div class="col-3">
-            <a href="#">Opção 1</a>
-            <br>
-            <a href="#">Opção 2</a>
-            <br>
-            <a href="#">Opção 3</a>
-            <br>
-            <a href="#">Opção 4</a>
-            <br>
+            <div class="">
+                <span>Mapa do Site</span>
+                <br>
+                <a href="#" @click="$router.push(`/`)">Home</a>
+                <br>
+                <a href="#" @click="$router.push(`/sobre`)">Sobre</a>
+                <br>
+                <a href="#" @click="$router.push(`/login`)">Login</a>
+                <br>
+                <!-- <a href="#">Opção 4</a> -->
+                <!-- <br> -->
+            </div>
         </div>
-        <div class="col-3">
-            <a href="#">Opção 5</a>
-            <br>
-            <a href="#">Opção 6</a>
-            <br>
-            <a href="#">Opção 7</a>
-            <br>
-            <a href="#">Opção 8</a>
-            <br>
-        </div>
-        <div class="col-3">
-            <a href="#">Opção 9</a>
-            <br>
-            <a href="#">Opção 10</a>
-            <br>
-            <a href="#">Opção 11</a>
-            <br>
-            <a href="#">Opção 12</a>
-            <br>
-        </div>
+        <!--   -->
     </div>
 </template>
 

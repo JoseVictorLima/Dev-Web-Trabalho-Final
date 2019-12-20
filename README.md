@@ -2,6 +2,7 @@
 
 # V1.0 :Existe a possibilidade de aparecer um bug visual quando sair da tela de login para outras.
 # V1.1 :Bug visual anterior corrigido, possibilidade de clicar nas receitas e ir para Sobre.
+# V1.2 :Adicionada a possibilidade de entrar nas receitas estaticas.
 
 ## Project setup
 ```

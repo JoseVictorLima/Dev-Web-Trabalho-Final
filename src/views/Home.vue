@@ -9,21 +9,21 @@
         </div>
         <div class="col-md-12">
           <div class="image col-3 text-center">
-            <img src="../assets/img/image_not_found.png" class="image-radial" alt="" height="100%" width="100%">
+            <img src="../assets/img/pudim_leite.jpg" class="image-radial" alt="" height="100px" width="150px">
             <figcaption>
-              <div class="hidden-link" @click="redirecinarReceita('1')">receita 1</div>
+              <div class="hidden-link" @click="redirecinarReceita('1')">Pudim de Leite</div>
             </figcaption>
           </div>
           <div class="image col-3 text-center">
-            <img src="../assets/img/image_not_found.png" class="image-radial" alt="" height="100%" width="100%">
+            <img src="../assets/img/lasanha_bolonhesa.jpg" class="image-radial" alt="" height="100px" width="150px">
             <figcaption>
-              <div class="hidden-link" @click="redirecinarReceita('2')">receita 2</div>
+              <div class="hidden-link" @click="redirecinarReceita('2')">Lasanha à Bolonhesa</div>
             </figcaption>
           </div>
           <div class="image col-3 text-center">
-            <img src="../assets/img/image_not_found.png" class="image-radial" alt="" height="100%" width="100%">
+            <img src="../assets/img/cachorro_quente.jpg" class="image-radial" alt="" height="100px" width="150px">
             <figcaption>
-              <div class="hidden-link" @click="redirecinarReceita('3')">receita 3</div>
+              <div class="hidden-link" @click="redirecinarReceita('3')">Cachorro Quente</div>
             </figcaption>
           </div>
         </div>
@@ -32,21 +32,21 @@
         </div>
         <div class="col-md-12">
           <div class="image col-3 text-center">
-            <img src="../assets/img/image_not_found.png" class="image-radial" alt="" height="100%" width="100%">
+            <img src="../assets/img/pudim_leite.jpg" class="image-radial" alt="" height="100px" width="150px">
             <figcaption>
-              <div class="hidden-link" @click="redirecinarReceita('4')">Primeiro Lugar</div>
+              <div class="hidden-link" @click="redirecinarReceita('1')">Primeiro Lugar</div>
             </figcaption>
           </div>
           <div class="image col-3 text-center">
-            <img src="../assets/img/image_not_found.png" class="image-radial" alt="" height="100%" width="100%">
+            <img src="../assets/img/lasanha_bolonhesa.jpg" class="image-radial" alt="" height="100px" width="150px">
             <figcaption>
-              <div class="hidden-link" @click="redirecinarReceita('5')">Segundo Lugar</div>
+              <div class="hidden-link" @click="redirecinarReceita('2')">Segundo Lugar</div>
             </figcaption>
           </div>
           <div class="image col-3 text-center">
-            <img src="../assets/img/image_not_found.png" class="image-radial" alt="" height="100%" width="100%">
+            <img src="../assets/img/cachorro_quente.jpg" class="image-radial" alt="" height="100px" width="150px">
             <figcaption>
-              <div class="hidden-link" @click="redirecinarReceita('6')">Terçeiro Lugar</div>
+              <div class="hidden-link" @click="redirecinarReceita('3')">Terçeiro Lugar</div>
             </figcaption>
           </div>
         </div>

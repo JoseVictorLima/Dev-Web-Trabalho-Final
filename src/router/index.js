@@ -32,7 +32,7 @@ const routes = [
 
   {
     path: '/receita',
-    name: 'receita',
+    name: 'receitas',
     component: () => import('../views/Receita.vue')
   },
 
