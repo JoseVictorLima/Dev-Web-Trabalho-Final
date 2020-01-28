@@ -1,0 +1,93 @@
+{
+  "receitas":[
+    {
+      "id":1,
+      "nome": "Pudim de Leite",
+      "img": "img/pudim_leite.jpg",
+      "rendimento": "16 Porções",
+      "tempo": "08h:00m",
+      "igredientes":[
+        {"label":"Xícara (chá) de açúcar","value":"1"},
+        {"label":"Leite moça (lata ou caixinha)","value":"1"},
+        {"label":"Medidas (da lata) de Leite Líquido Ninho","value":"2"},
+        {"label":"Ovos","value":"3"}
+      ],
+      "preparos":[
+        {"type":"title" ,"label":"Calda:"},
+        {"type":"text" ,"label":"Em uma panela de fundo largo, derreta o açúcar até ficar dourado."},
+        {"type":"text" ,"label":"Junte meia xícara (chá) de água quente e mexa com uma colher."},
+        {"type":"text" ,"label":"Deixe ferver até dissolver os torrões de açúcar e a calda engrossar."},
+        {"type":"text" ,"label":"Forre com a calda uma forma com furo central (19 cm de diâmetro) e reserve."},
+        {"type":"title" ,"label":"Pudim:"},
+        {"type":"text" ,"label":"Em um liquidificador, bata todos os ingredientes do pudim e despeje na forma reservada."},
+        {"type":"text" ,"label":"Cubra com papel-alumínio e leve ao forno médio (180°C), em banho-maria, por cerca de 1 hora e 30 minutos."},
+        {"type":"text" ,"label":"Depois de frio, leve para gelar por cerca de 6 horas. Desenforme e sirva a seguir."}
+      ]
+    },
+    {
+      "id":2,
+      "nome": "Lasanha à Bolonhesa",
+      "img": "img/lasanha_bolonhesa.jpg",
+      "rendimento": "12 Porções",
+      "tempo": "01h:30m",
+      "igredientes":[
+        {"id":1,"label":"Quilo de massa para lasanha","value":"Meio"},
+        {"id":2,"label":"Colheres (sopa) de óleo","value":"2"},
+        {"id":3,"label":"Quilo de carne moída","value":"Meio"},
+        {"id":4,"label":"Cebola pequena picada","value":"1"},
+        {"id":5,"label":"Cenoura pequena ralada no ralo fino","value":"1"},
+        {"id":6,"label":"Xícara (chá) de salsão picado","value":"Meia"},
+        {"id":7,"label":"Lata de polpa de tomate","value":"1"},
+        {"id":8,"label":"Tabletes de MAGGI Caldo Carne","value":"2"},
+        {"id":9,"label":"Colheres (sopa) de manteiga","value":"2"},
+        {"id":10,"label":"Colheres (sopa) de farinha de trigo","value":"2 e meia"},
+        {"id":11,"label":"Meio litro de Leite Líquido NINHO","value":"3"},
+        {"id":12,"label":"Meio quilo de carne moída","value":"2"},
+        {"id":13,"label":"Pitada de noz-moscada","value":"2"},
+        {"id":14,"label":"Colher (chá) de sal","value":"2"},
+        {"id":15,"label":"Pitada de pimenta-do-reino","value":"2"},
+        {"id":16,"label":"Caixinha de NESTLÉ Creme de Leite","value":"2"},
+        {"id":17,"label":"g de queijo mozarela fatiado","value":"2"},
+        {"id":18,"label":"Colheres (sopa) de queijo parmesão ralado","value":"2"}
+      ],
+      "preparos":[
+        {"id":1,"type":"title" ,"label":"Lasanha:"},
+        {"id":2,"type":"text" ,"label":"Cozinhe a massa de acordo com as instruções da embalagem e coloque em um recipiente com água fria até o momento de montar."},
+        {"id":3,"type":"title" ,"label":"Molho Bolonhesa:"},
+        {"id":4,"type":"text" ,"label":"Em uma panela, aqueça o óleo e refogue a carne."},
+        {"id":5,"type":"text" ,"label":"Junte a cebola, a cenoura, o salsão e deixe refogar até murchar."},
+        {"id":6,"type":"text" ,"label":"Acrescente a polpa de tomate e o tablete de MAGGI Caldo, dissolvido em 1 xícara (chá) de água quente. Deixe cozinhar por cerca de 10 minutos, ou até apurar o molho. Reserve."},
+        {"id":7,"type":"title" ,"label":"Molho Branco:"},
+        {"id":8,"type":"text" ,"label":"Em uma panela, derreta a manteiga, junte a farinha de trigo e deixe dourar. Aos poucos junte o Leite NINHO, mexendo sempre para não formar grumos."},
+        {"id":9,"type":"text" ,"label":"Acrescente a noz moscada, o sal, e a pimenta-do-reino."},
+        {"id":10,"type":"text" ,"label":"Quando adquirir consistência cremosa, retire do fogo, acrescente o NESTLÉ Creme de Leite, misture bem e reserve."},
+        {"id":11,"type":"title" ,"label":"Montagem:"},
+        {"id":12,"type":"text" ,"label":"Em um recipiente refratário (20 x 30 cm), coloque uma porção de molho bolonhesa; cubra com uma camada de massa, e uma porção de molho branco e coloque o queijo mozarela. Repita as camadas até a borda do recipiente."},
+        {"id":13,"type":"text" ,"label":"Finalize com o queijo parmesão ralado e leve ao forno alto (220°C), preaquecido, por cerca de 20 minutos ou até dourar. Sirva."}
+      ]
+    },
+    {
+      "id":3,
+      "nome": "Cachorro Quente",
+      "img": "img/cachorro_quente.jpg",
+      "rendimento": "10 Porções",
+      "tempo": "00h:30m",
+      "igredientes":[
+        {"label":"g de salsicha","value":"300"},
+        {"label":"Cebola","value":"1"},
+        {"label":"Tomate","value":"1"},
+        {"label":"Colher de manteiga","value":"1"},
+        {"label":"Copo de extrato de tomate","value":"1"},
+        {"label":"Caixa de creme de leite","value":"1"},
+        {"label":"Medida do copo de extrato de tomate de água","value":"Meia"}
+      ],
+      "preparos":[
+        {"type":"text" ,"label":"Pique a cebola e o tomate, refogue bem na manteiga."},
+        {"type":"text" ,"label":"Acrescente o extrato de tomate, corte a salsicha em rodelas e deixe cozinhar a gosto, se presiso acrescente a medida de água."},
+        {"type":"text" ,"label":"Depois de cozinhar bem acrescente o creme de leite."},
+        {"type":"text" ,"label":"Acrescente batata palha, milho verde, catchup e maionese."},
+        {"type":"text" ,"label":"E é so servir."}
+      ]
+    }
+]
+}

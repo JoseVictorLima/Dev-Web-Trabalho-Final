@@ -14,23 +14,23 @@
         <div class="col-4 recipe-image">
           <br>
           <br>
-          <img :src="receita.img" class="" alt="" height="100%" width="100%">
+          <img :src="`${receita.img}`" class="" alt="" height="100%" width="100%">
           <br>
           <br>
           <div class="row">
             <div class="preparo-title col-6">
               <img src="../assets/img/iconfinder_time_clock.png" alt="../assets/img/iconfinder_time_clock.png" height="30px" width="30px">
-              : {{receita.tempo}}
+              {{receita.tempo}}
             </div>
             <div class="preparo-title col-6">
               <img src="../assets/img/iconfinder_food.png" alt="../assets/img/iconfinder_food.png" height="30px" width="30px">
-              : {{receita.rendimento}}
+              {{receita.rendimento}}
             </div>
             <br>
             <br>
             <div class="col-12">
               <div class="col-12 text-center preparo-title">Ingredientes</div>
-              <div v-for="(igrediente,index) of this.receita.ingredientes" :key="index" class="col-12">
+              <div v-for="(igrediente,index) of this.receita.igredientes" :key="index" class="col-12">
                 <li>{{igrediente.value}} {{igrediente.label}}</li>
               </div>
             </div>
@@ -40,7 +40,7 @@
           <br>
           <h4 class="text-center">Modo de Preparo</h4>
           <fieldset class="recipe-text">
-            <div v-for="(preparo,index) of this.receita.preparo" :key="index">
+            <div v-for="(preparo,index) of this.receita.preparos" :key="index">
               <h5 v-if="preparo.type=='title'" class="preparo-title">{{preparo.label}}</h5>
               <p v-if="preparo.type=='text'">{{preparo.label}}</p>
             </div>
@@ -86,7 +86,17 @@ export default {
     },
 
     async getReceita(id){
-      this.receita = this.generateStaticRecipe(id)
+      const resp = await this.$services.receitas.getById(this.$route.params.id);
+      // console.log(resp)
+      if(resp){
+        this.receita = resp.data
+        // this.receita.img 
+        // console.log(this.receita)
+        // let string = new String(this.receita.img)
+        // this.receita.image = require(string)
+        // this.$forceUpdate()
+      }
+      // this.receita = this.generateStaticRecipe(id)
     },
 
 
@@ -95,7 +105,7 @@ export default {
         if(id=="1"){
             recipe = {
                 nome: "Pudim de Leite",
-                img: require('../assets/img/pudim_leite.jpg'),
+                // img: require('../assets/img/pudim_leite.jpg'),
                 ingredientes:[
                     {label:"Xícara (chá) de açúcar",value:1},
                     {label:"Leite moça (lata ou caixinha)",value:1},
