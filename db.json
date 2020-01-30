@@ -1,4 +1,14 @@
 {
+  "novos":[
+    {"id":1,"receitaId":1},
+    {"id":2,"receitaId":2},
+    {"id":3,"receitaId":3}
+  ],
+  "top3":[
+    {"id":1,"receitaId":2},
+    {"id":2,"receitaId":3},
+    {"id":3,"receitaId":1}    
+  ],
   "receitas":[
     {
       "id":1,

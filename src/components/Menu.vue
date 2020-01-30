@@ -1,18 +1,25 @@
 <template>
     <div>
         <div class="menu-container row">
-            <div class="col-2 flex-div">
-                <span class="hidden-link middler" @click="redirect('home')"><b>Home</b></span>
+            <div class="col-12 row">
+                <div class="col-2 flex-div">
+                    <span class="hidden-link middler" @click="redirect('home')"><b>Home</b></span>
+                </div>
+                <div class="col-2 flex-div">
+                    <span class="hidden-link middler" @click="redirect('sobre')"><b>Sobre</b></span>
+                </div>
+                <div class="col-2 flex-div">
+                    <span class="hidden-link middler" @click="redirect('cadastrarReceita')"><b>Nova Receita</b></span>
+                </div>
+                <div class="col-2 flex-div">
+                    <span class="hidden-link middler" @click="redirect('login')"><b>Login</b></span>
+                </div>
             </div>
-            <div class="col-2 flex-div">
-                <span class="hidden-link middler" @click="redirect('sobre')"><b>Sobre</b></span>
-            </div>
-            <div class="col-2 flex-div">
-                <span class="hidden-link middler" @click="redirect('login')"><b>Login</b></span>
-            </div>
-            <div class="col-6 image-div">
-                <div class="photo-container">
-                    <img src='../assets/img/impmon_account_photo.png' :alt="img" height="100%" width="100%" class="circular-photo">
+            <div class="col-12 row">
+                <div class="col-12 image-div">
+                    <div class="photo-container">
+                        <img src='../assets/img/impmon_account_photo.png' :alt="img" height="100%" width="100%" class="circular-photo">
+                    </div>
                 </div>
             </div>
         </div>    

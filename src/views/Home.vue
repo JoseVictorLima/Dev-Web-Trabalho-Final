@@ -7,14 +7,15 @@
         <div class="col-md-6 container-special">
           <h4>Receitas do Dia</h4>
         </div>
-        <div class="col-md-12">
-          <div class="image col-3 text-center">
-            <img src="../assets/img/pudim_leite.jpg" class="image-radial" alt="" height="100px" width="150px">
-            <figcaption>
-              <div class="hidden-link" @click="redirecinarReceita('1')">Pudim de Leite</div>
-            </figcaption>
+          <div class="col-md-12" v-if="this.novos!=undefined">
+            <div v-for="(receita,index) of this.novos" :key="index" class="image col-3 text-center">
+              <img :src="receita.img" class="image-radial" alt="" height="100px" width="150px">
+              <figcaption>
+                <div class="hidden-link" @click="redirecinarReceita(receita.id)">{{receita.nome}}</div>
+              </figcaption>
+            </div>
           </div>
-          <div class="image col-3 text-center">
+          <!-- <div class="image col-3 text-center">
             <img src="../assets/img/lasanha_bolonhesa.jpg" class="image-radial" alt="" height="100px" width="150px">
             <figcaption>
               <div class="hidden-link" @click="redirecinarReceita('2')">Lasanha à Bolonhesa</div>
@@ -25,12 +26,20 @@
             <figcaption>
               <div class="hidden-link" @click="redirecinarReceita('3')">Cachorro Quente</div>
             </figcaption>
-          </div>
-        </div>
+          </div> -->
+        <!-- </div> -->
         <div class="col-md-6 container-special">
           <h4>Top 3</h4>
         </div>
-        <div class="col-md-12">
+        <div class="col-md-12" v-if="top3!=undefined">
+          <div v-for="(receita,index) of top3" :key="index" class="image col-3 text-center">
+            <img :src="receita.img" class="image-radial" alt="" height="100px" width="150px">
+            <figcaption>
+              <div class="hidden-link" @click="redirecinarReceita(receita.id)">{{receita.nome}}</div>
+            </figcaption>
+          </div>
+        </div>
+        <!-- <div class="col-md-12">
           <div class="image col-3 text-center">
             <img src="../assets/img/pudim_leite.jpg" class="image-radial" alt="" height="100px" width="150px">
             <figcaption>
@@ -49,7 +58,7 @@
               <div class="hidden-link" @click="redirecinarReceita('3')">Terçeiro Lugar</div>
             </figcaption>
           </div>
-        </div>
+        </div> -->
       </div>
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
@@ -62,11 +71,49 @@ import Menu from '@/components/Menu.vue'
 // import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
-  name: 'home',
+  // name: 'home',
   components: {
     Menu
   },
+  data(){
+    return{
+      top3:undefined,
+      novos:undefined,
+    }
+  },
+
+  mounted(){
+    this.init()
+  },
+
   methods:{
+    async init(){
+      await this.getTop3()
+      await this.getNovos()
+    },
+    async getTop3(){
+      const resp = await this.$services.top3.getAll()
+      if(resp) {
+        this.top3 = new Array()
+        for(let receita of resp.data){
+          const receitaResp = await this.$services.receitas.getById(receita.receitaId)
+          if(receitaResp) this.top3.push(receitaResp.data)
+        }
+      }
+    },
+    async getNovos(){
+      const resp = await this.$services.novos.getAll()
+      if(resp) {
+        this.novos = new Array()
+        for(let receita of resp.data){
+          const receitaResp = await this.$services.receitas.getById(receita.receitaId)
+          if(receitaResp) this.novos.push(receitaResp.data)
+        }
+      }
+    },
+    async loadReceita(){
+
+    },
     redirecinarReceita(id){
       this.$router.push(`/receita/${id}`)
     }

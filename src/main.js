@@ -6,7 +6,7 @@ import Styles from './assets/css/Styles.css'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import axios from 'axios'
+// import axios from 'axios'
 import * as services from "./services/";
 Vue.prototype.$services = services;
 
@@ -17,6 +17,6 @@ new Vue({
   store,
   BootstrapVue,
   Styles,
-  axios,
+  // axios,
   render: h => h(App)
 }).$mount('#app')
