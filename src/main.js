@@ -7,16 +7,25 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 // import axios from 'axios'
+import Toast from "vue-toastification";
+import "vue-toastification/dist/index.css";
 import * as services from "./services/";
+import './mixins'
+
 Vue.prototype.$services = services;
 
 Vue.config.productionTip = false
+
+Vue.use(
+  Toast,{closeOnClick:true}
+),
 
 new Vue({
   router,
   store,
   BootstrapVue,
   Styles,
+  Toast,
   // axios,
   render: h => h(App)
 }).$mount('#app')

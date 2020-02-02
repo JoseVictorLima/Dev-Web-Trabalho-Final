@@ -3,6 +3,7 @@
       <br>
       <Menu></Menu>
       <br>
+      <!-- <button @click="meuToast()">Toast</button> -->
       <div class="row">
         <div class="col-md-6 container-special">
           <h4>Receitas do Dia</h4>
@@ -114,6 +115,9 @@ export default {
     async loadReceita(){
 
     },
+    // meuToast(){
+    //   this.makeToast("Teste de Toast")
+    // },
     redirecinarReceita(id){
       this.$router.push(`/receita/${id}`)
     }

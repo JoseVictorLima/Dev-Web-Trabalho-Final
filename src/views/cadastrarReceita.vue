@@ -28,7 +28,7 @@
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
       </div>
 
-      <button type="submit" class="btn btn-primary">Enviar</button>
+      <button type="button" class="btn btn-primary" @click="salvar()">Salvar</button>
 </form>
     </div>
     <br>
@@ -42,7 +42,34 @@ export default {
   },
   data(){
     return{
-      receita:{}
+      receita:{
+        igredientes:[],
+        preparos:[],
+
+      }
+    }
+  },
+
+  mounted(){
+    this.init()
+  },
+
+  methods:{
+    init(){
+
+    },
+
+    async salvar(){
+      try{
+        const resp = await this.$services.receitas.post(this.receita)
+        console.log(resp)
+        if(resp && resp.data){
+          this.makeToast("Receita salva com sucesso!",'success')
+        }
+      }catch(error){
+        console.log(error)
+        this.makeToast("Não foi possivel salvar! Tente outra vez mais tarde!",'error')
+      }
     }
   },
 }

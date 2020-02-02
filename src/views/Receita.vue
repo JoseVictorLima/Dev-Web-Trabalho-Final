@@ -3,7 +3,7 @@
     <br>
     <Menu></Menu>
     <br>
-    <div class="container text-center row recipe-container">
+    <div v-if="receita!=undefined" class="container text-center row recipe-container">
       <br>
       <br>
       <div class="col-12 ">
@@ -88,13 +88,16 @@ export default {
     async getReceita(id){
       const resp = await this.$services.receitas.getById(this.$route.params.id);
       // console.log(resp)
-      if(resp){
+      if(resp && resp.data){
         this.receita = resp.data
         // this.receita.img 
         // console.log(this.receita)
         // let string = new String(this.receita.img)
         // this.receita.image = require(string)
         // this.$forceUpdate()
+      }
+      else{
+        this.makeToast("Não foi possivel carregar a receita! Tente outra vez mais tarde!",'warning')
       }
       // this.receita = this.generateStaticRecipe(id)
     },
