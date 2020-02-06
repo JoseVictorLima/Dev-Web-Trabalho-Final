@@ -40,10 +40,10 @@
           <br>
           <h4 class="text-center">Modo de Preparo</h4>
           <fieldset class="recipe-text">
-            <div v-for="(preparo,index) of this.receita.preparos" :key="index">
-              <h5 v-if="preparo.type=='title'" class="preparo-title">{{preparo.label}}</h5>
-              <p v-if="preparo.type=='text'">{{preparo.label}}</p>
+            <div>
+              <p>{{receita.preparo}}</p>
             </div>
+              <!-- <h5 v-if="preparo.type=='title'" class="preparo-title">{{preparo.label}}</h5> -->
           </fieldset>
         </div>
         <br>

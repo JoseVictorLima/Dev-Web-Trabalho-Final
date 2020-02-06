@@ -89,8 +89,12 @@ export default {
 
   methods:{
     async init(){
-      await this.getTop3()
-      await this.getNovos()
+      try{
+        await this.getTop3()
+        await this.getNovos()
+      }catch(erro){
+        this.makeToast("Não foi possivel carregar as receitas! Tente outra vez mais tarde!",'warning')
+      }
     },
     async getTop3(){
       const resp = await this.$services.top3.getAll()

@@ -12,13 +12,27 @@
               <form class="login-form">
                 <input type="text" placeholder="username"/>
                 <input type="password" placeholder="password"/>
-                <button>login</button>
+                <button type="button" @click="login()">login</button>
                 <p class="message">Not registered?  <a href="#">Create an account</a></p>
               </form>
             </div>
           </div>
 </template>
+<script>
+export default {
+  data(){
+    return{
 
+    }
+  },
+
+  methods:{
+    login(){
+      this.$router.push('/')
+    },
+  },
+}
+</script>
 <style>
   @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
