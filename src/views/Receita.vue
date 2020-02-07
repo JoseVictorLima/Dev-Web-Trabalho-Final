@@ -3,17 +3,17 @@
     <br>
     <Menu></Menu>
     <br>
-    <div v-if="receita.id==undefined" class="container text-center row recipe-container">
+    <div v-if="receita==undefined" class="container text-center row recipe-container">
       <img src="../assets/img/page_not_found.png" alt="">
     </div>
-    <div v-if="receita.id!=undefined" class="container text-center row recipe-container">
+    <div v-if="receita!=undefined" class="container text-center row recipe-container">
       <br>
       <br>
-      <div class="col-12 ">
+      <div v-if="receita.id!=undefined" class="col-12 ">
         <h1>{{receita.nome}}</h1>
       </div>
       <br>
-      <div class="col-12 row text-left">
+      <div v-if="receita.id!=undefined" class="col-12 row text-left">
         <div class="col-4 recipe-image">
           <br>
           <br>
@@ -57,7 +57,7 @@
     </div>
     <br>
     <br>
-    <div class="col-1">
+    <div v-if="receita.id!=undefined" class="col-1">
       <br>
       <button class="btn btn-danger" @click="deletar(receita.id)" type="button">Deletar</button>
     </div>
@@ -102,10 +102,11 @@ export default {
           this.receita = resp.data
         }
         else{
-          this.makeToast("Não foi possivel carregar a receita! Tente outra vez mais tarde!",'warning')
+          this.makeToast("Não foi possivel carregar a receita! Tente outra vez mais tarde!",'error')
         }
       }catch(erro){
-        this.makeToast("Não foi possivel carregar a receita! Tente outra vez mais tarde!",'warning')
+        this.makeToast("Não foi possivel carregar a receita! Tente outra vez mais tarde!",'error')
+        this.receita = undefined
       }
       // this.receita = this.generateStaticRecipe(id)
     },
