@@ -25,7 +25,7 @@
                     {{receita.tempo}}
                   </div>
                   <div class="col-6">
-                    <img src="../assets/img/iconfinder_food.png" height="20px" width="20px">
+                    <!-- <img src="../assets/img/iconfinder_food.png" height="20px" width="20px"> -->
                     {{receita.rendimento}}
                     Porções
                   </div>
@@ -80,13 +80,14 @@ export default {
   methods:{
     async init(){
       try{
-        await this.getRceitas()
+        await this.getReceitas()
       }catch(erro){
         this.makeToast("Não foi possivel carregar as receitas! Tente outra vez mais tarde!",'error')
         this.receitas = undefined
       }
     },
-    async getRceitas(){
+    
+    async getReceitas(){
       const resp = await this.$services.receitas.getAll()
       if(resp && resp.data) {
         this.receitas = new Array()
@@ -97,6 +98,7 @@ export default {
     redirecinarReceita(id){
       this.$router.push(`/receita/${id}`)
     }
+
   }
 }
 </script>

@@ -113,7 +113,7 @@ export default {
 
     async deletar(id){
       try{
-        if(id==1||id==2||id==3) return
+        // if(id==1||id==2||id==3) return
         const resp = await this.$services.receitas.delete(id)
         console.log(resp)
         if(resp.statusText=='OK'){
