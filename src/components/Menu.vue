@@ -9,6 +9,9 @@
                     <span class="hidden-link middler" @click="redirect('sobre')"><b>Sobre</b></span>
                 </div>
                 <div class="col-2 flex-div">
+                    <span class="hidden-link middler" @click="redirect('receitas')"><b>Receitas</b></span>
+                </div>
+                <div class="col-2 flex-div">
                     <span class="hidden-link middler" @click="redirect('cadastrarReceita')"><b>Nova Receita</b></span>
                 </div>
                 <div class="col-2 flex-div">

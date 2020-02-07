@@ -4,7 +4,7 @@
       <Menu></Menu>
       <br>
       <!-- <button @click="meuToast()">Toast</button> -->
-      <div class="row">
+      <div class="row" style="max-width:1300px; min-height: 200px;">
         <div class="col-md-6 container-special">
           <h4>Receitas do Dia</h4>
         </div>
@@ -93,7 +93,7 @@ export default {
         await this.getTop3()
         await this.getNovos()
       }catch(erro){
-        this.makeToast("Não foi possivel carregar as receitas! Tente outra vez mais tarde!",'warning')
+        this.makeToast("Não foi possivel carregar as receitas! Tente outra vez mais tarde!",'error')
       }
     },
     async getTop3(){

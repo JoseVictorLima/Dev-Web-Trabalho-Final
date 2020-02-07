@@ -35,12 +35,16 @@ const routes = [
     name: 'cadastrarreceita',
     component: () => import('../views/cadastrarReceita.vue')
   },
-  
   {
-    path: '/receita',
+    path: '/receitas',
     name: 'receitas',
-    component: () => import('../views/Receita.vue')
+    component: () => import('../views/ReceitaLista.vue')
   },
+  // {
+  //   path: '/receita',
+  //   name: 'receita',
+  //   component: () => import('../views/Receita.vue')
+  // },
 
   {
     path: '/receita/:id',
