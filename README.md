@@ -22,6 +22,8 @@ v1.3.1 :Adição de um plugin de Toast.
 v1.4 :Adição da necessidade de utilizar de um backend proprio. 
 [Backend](https://github.com/JoseVictorLima/Dev-Web-Trabalho-Final_BackEnd)
 ```
+v1.4.1 :Possibilidade de testar o Login e verificar se usuário esta cadastrado.
+```
 
 ## Project setup
 ```
