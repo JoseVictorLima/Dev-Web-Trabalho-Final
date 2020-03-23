@@ -14,14 +14,17 @@
                 <div class="col-2 flex-div">
                     <span class="hidden-link middler" @click="redirect('cadastrarReceita')"><b>Nova Receita</b></span>
                 </div>
-                <div class="col-2 flex-div">
+                <div class="col-2 flex-div" v-if="this.usuarioLogado==undefined">
                     <span class="hidden-link middler" @click="redirect('login')"><b>Login</b></span>
                 </div>
+                <div class="col-2 flex-div" v-if="this.usuarioLogado!=undefined">
+                    <span class="hidden-link middler" @click="logof()"><b>Sair</b></span>
+                </div>
             </div>
-            <div class="col-12 row">
+            <div v-if="this.usuarioLogado!=undefined" class="col-12 row">
                 <div class="col-12 image-div">
                     <div class="photo-container">
-                        <img src='../assets/img/impmon_account_photo.png' :alt="img" height="100%" width="100%" class="circular-photo">
+                        <img :src="`${this.usuarioLogado.img}`" :alt="img" height="100%" width="100%" class="circular-photo">
                     </div>
                 </div>
             </div>
@@ -32,14 +35,14 @@
 export default {
     data(){
         return{
-            img:'../assets/img/impmon_account_photo.png'
+            // img:'../assets/img/impmon_account_photo.png'
         };
     },
     methods:{
-        redirect(path){
-            if(path=='home') this.$router.push('/')
-            else this.$router.push(`/${path}`)
-        }
+        // redirect(path){
+        //     if(path=='home') this.$router.push('/')
+        //     else this.$router.push(`/${path}`)
+        // }
     }
 }
 </script>

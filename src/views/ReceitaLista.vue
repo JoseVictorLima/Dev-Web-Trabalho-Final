@@ -11,8 +11,8 @@
             <div v-if="this.receitas!=undefined" class="col-md-12" style="min-height: 200px;">
               <div v-for="(receita,index) of this.receitas" :key="index" class="image col-3 text-center">
                 <div class="col-12">
-                  <img v-if="receita.img==undefined" src="../assets/img/image_not_found.png" class="image-radial" height="100px" width="150px">
-                  <img v-if="receita.img!=undefined" :src="receita.img" class="image-radial" height="100px" width="150px">
+                  <img v-if="receita.imagem==undefined" src="../assets/img/image_not_found.png" class="image-radial" height="100px" width="150px">
+                  <img v-if="receita.imagem!=undefined" :src="receita.imagem" class="image-radial" height="100px" width="150px">
                 </div>
                 <br>
                 <div class="col-12 text-center">
@@ -24,7 +24,7 @@
                     <img src="../assets/img/iconfinder_time_clock.png" height="20px" width="20px">
                     {{receita.tempo}}
                   </div>
-                  <div class="col-6">
+                  <div class="col-5">
                     <!-- <img src="../assets/img/iconfinder_food.png" height="20px" width="20px"> -->
                     {{receita.rendimento}}
                     Porções

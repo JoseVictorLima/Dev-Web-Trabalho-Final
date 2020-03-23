@@ -17,7 +17,8 @@
         <div class="col-4 recipe-image">
           <br>
           <br>
-          <img :src="`${receita.img}`" class="" alt="" height="100%" width="100%">
+          <img v-if="receita.imagem==undefined" src="../assets/img/image_not_found.png" class="" alt="" height="100%" width="100%">
+          <img v-if="receita.imagem!=undefined" :src="`${receita.imagem}`" class="" alt="" height="100%" width="100%">
           <br>
           <br>
           <div class="row">

@@ -6,6 +6,7 @@
       <!-- <button @click="meuToast()">Toast</button> -->
       <div class="row" style="max-width:1300px; min-height: 200px;">
         <div class="col-md-6 container-special">
+          <!-- <pre>{{this.usuarioLogado}}</pre> -->
           <h4>Receitas do Dia</h4>
         </div>
           <div class="col-md-12" v-if="this.novos!=undefined">
@@ -117,12 +118,14 @@ export default {
     async getNovos(){
       try{
         const resp = await this.$services.novos.getAll()
+        // console.log(resp)
         if(resp) {
           this.novos = new Array()
-          for(let receita of resp.data){
-            const receitaResp = await this.$services.receitas.getById(receita.receitaId)
-            if(receitaResp) this.novos.push(receitaResp.data)
-          }
+          this.novos = resp.data
+          // for(let receita of resp.data){
+          //   const receitaResp = await this.$services.receitas.getById(receita.receitaId)
+          //   if(receitaResp) this.novos.push(receitaResp.data)
+          // }
         }
       }catch(error){
         this.makeToast("Não foi possivel carregar as novas receitas! Tente outra vez mais tarde!",'error')
