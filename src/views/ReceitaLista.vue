@@ -1,8 +1,5 @@
 <template >
   <div class="home">
-      <br>
-      <Menu></Menu>
-      <br>
         <div>
           <br>
             <div v-if="this.receitas==undefined" class="container text-center row recipe-container">
@@ -61,11 +58,9 @@
 </template>
 
 <script>
-import Menu from '@/components/Menu.vue'
 
 export default {
   components: {
-    Menu
   },
   data(){
     return{

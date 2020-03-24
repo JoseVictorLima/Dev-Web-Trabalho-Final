@@ -6,18 +6,20 @@ export default {
             if(resp.data.token=='Invalid'){
               this.makeToast("Nome ou Senha invalido!",'error')
             }else{
-              this.usuarioLogado = resp.data.usuario[0]
+              this.$store.commit('setUsuario',resp.data.usuario[0])
             //   console.log(this.usuarioLogado)
               this.$router.push('/')
             }
           },
         logof(){
-            if(this.usuarioLogado!=undefined) this.usuarioLogado = undefined
-            this.redirect('home')
+            if(this.$store.state.usuarioLogado.id!=undefined){
+              this.$store.commit('unSetUsuario')
+              this.redirect('home')
+            }
         },
         redirect(path){
-            if(path=='home') this.$router.push('/')
-            else this.$router.push(`/${path}`)
+            if(path=='home') this.$router.push('/').catch(err => {})
+            else this.$router.push(`/${path}`).catch(err => {})
         },
         makeToast(message,type,config=undefined){
             //Available Types:

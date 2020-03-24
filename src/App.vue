@@ -1,5 +1,8 @@
 <template>
   <div id="app" class="background">
+    <br>
+    <Menu v-if="this.$router.currentRoute.path!='/login'"></Menu>
+    <br>
     <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
@@ -10,12 +13,14 @@
 </template>
 
 <script>
+import Menu from '@/components/Menu.vue'
 // @ is an alias to /src
 import CustomFooter from './components/Footer.vue'
 // import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   components: {
+    Menu,
     CustomFooter,
   }
 }

@@ -1,4 +1,4 @@
-# project
+# Project
 
 #Versões
 V1.0.0 :Existe a possibilidade de aparecer um bug visual quando sair da tela de login para outras.
@@ -23,6 +23,8 @@ v1.4 :Adição da necessidade de utilizar de um backend proprio.
 [Backend](https://github.com/JoseVictorLima/Dev-Web-Trabalho-Final_BackEnd)
 ```
 v1.4.1 :Possibilidade de testar o Login e verificar se usuário esta cadastrado.
+```
+v1.4.2 :Adição do vuex-persistedstate.
 ```
 
 ## Project setup

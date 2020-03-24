@@ -1,8 +1,6 @@
 <template >
   <div class="home">
-      <br>
-      <Menu></Menu>
-      <br>
+      
       <!-- <button @click="meuToast()">Toast</button> -->
       <div class="row" style="max-width:1300px; min-height: 200px;">
         <div class="col-md-6 container-special">
@@ -11,8 +9,8 @@
         </div>
           <div class="col-md-12" v-if="this.novos!=undefined">
             <div v-for="(receita,index) of this.novos" :key="index" class="image col-3 text-center">
-              <img v-if="receita.img==null" src="../assets/img/image_not_found.png" class="image-radial" alt="" height="100px" width="150px">
-              <img v-if="receita.img!=null" :src="receita.img" class="image-radial" alt="" height="100px" width="150px">
+              <img v-if="receita.imagem==null" src="../assets/img/image_not_found.png" class="image-radial" alt="" height="100px" width="150px">
+              <img v-if="receita.imagem!=null" :src="receita.imagem" class="image-radial" alt="" height="100px" width="150px">
               <figcaption>
                 <div class="hidden-link" @click="redirecinarReceita(receita.id)">{{receita.nome}}</div>
               </figcaption>
@@ -36,8 +34,8 @@
         </div>
         <div class="col-md-12" v-if="top3!=undefined">
           <div v-for="(receita,index) of top3" :key="index" class="image col-3 text-center">
-            <img v-if="receita.img==null" src="../assets/img/image_not_found.png" class="image-radial" alt="" height="100px" width="150px">
-            <img v-if="receita.img!=null" :src="receita.img" class="image-radial" alt="" height="100px" width="150px">
+            <img v-if="receita.imagem==null" src="../assets/img/image_not_found.png" class="image-radial" alt="" height="100px" width="150px">
+            <img v-if="receita.imagem!=null" :src="receita.imagem" class="image-radial" alt="" height="100px" width="150px">
             <figcaption>
               <div class="hidden-link" @click="redirecinarReceita(receita.id)">{{receita.nome}}</div>
             </figcaption>
@@ -71,13 +69,11 @@
 
 <script>
 // @ is an alias to /src
-import Menu from '@/components/Menu.vue'
 // import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   // name: 'home',
   components: {
-    Menu
   },
   data(){
     return{
@@ -105,7 +101,10 @@ export default {
         // console.log(resp)
         if(resp) {
           this.top3 = new Array()
-          this.top3 = resp.data
+          // this.top3 = resp.data
+          for(let data of resp.data){
+            if(data!=null) this.top3.push(data)
+          }
           // for(let receita of resp.data){
           //   const receitaResp = await this.$services.receitas.getById(receita.receitaId)
           //   if(receitaResp) this.top3.push(receitaResp.data)
@@ -121,7 +120,10 @@ export default {
         // console.log(resp)
         if(resp) {
           this.novos = new Array()
-          this.novos = resp.data
+          // this.novos = resp.data
+          for(let data of resp.data){
+            if(data!=null) this.novos.push(data)
+          }
           // for(let receita of resp.data){
           //   const receitaResp = await this.$services.receitas.getById(receita.receitaId)
           //   if(receitaResp) this.novos.push(receitaResp.data)

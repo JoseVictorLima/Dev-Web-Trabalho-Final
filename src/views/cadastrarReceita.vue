@@ -1,8 +1,5 @@
 <template>
   <div class="about">
-    <br>
-    <Menu></Menu>
-    <br>
     <div class="container">
       <form class="row">
         <div class="form-group col-12">
@@ -54,10 +51,8 @@
   </div>
 </template>
 <script>
-import Menu from '@/components/Menu.vue'
 export default {
   components:{
-    Menu
   },
   data(){
     return{
@@ -110,7 +105,7 @@ export default {
       reader.onload = e => {
         let f = e.target.result
         // return f
-        this.receita.img = f
+        this.receita.imagem = f
       };
       // console.log(this.receita)
       reader.readAsDataURL(file);
@@ -118,6 +113,7 @@ export default {
 
     async salvar(){
       try{
+        this.receita.usuarioId = this.$store.state.usuarioLogado.id
         const resp = await this.$services.receitas.post(this.receita)
         // console.log(resp)
         if(resp && resp.data){

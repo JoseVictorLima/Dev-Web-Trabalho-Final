@@ -1,12 +1,15 @@
 <template>
   <div class="about">
-    <br>
-    <Menu></Menu>
-    <br>
     <div v-if="receita==undefined" class="container text-center row recipe-container">
       <img src="../assets/img/page_not_found.png" alt="">
     </div>
     <div v-if="receita!=undefined" class="container text-center row recipe-container">
+      <div v-if="receita.id!=undefined && this.$store.state.usuarioLogado.id!=undefined" class="col-1">
+        <div v-if="this.$store.state.usuarioLogado.id==receita.usuarioId">
+          <button class="btn btn-danger" @click="deletar(receita.id)" type="button">Apagar</button>
+          <br>
+        </div>
+      </div>
       <br>
       <br>
       <div v-if="receita.id!=undefined" class="col-12 ">
@@ -58,25 +61,19 @@
     </div>
     <br>
     <br>
-    <div v-if="receita.id!=undefined" class="col-1">
-      <br>
-      <button class="btn btn-danger" @click="deletar(receita.id)" type="button">Deletar</button>
-    </div>
   </div>
   </div>
 </template>
 <script>
-import Menu from '@/components/Menu.vue'
 export default {
   components:{
-    Menu
   },
 
   data(){
     return{
       receita:{
         nome: String,
-        img: String,
+        imagem: String,
         ingredientes: Array,
         preparo: Array,
         rendimento: Number,
@@ -116,8 +113,8 @@ export default {
       try{
         // if(id==1||id==2||id==3) return
         const resp = await this.$services.receitas.delete(id)
-        console.log(resp)
-        if(resp.statusText=='OK'){
+        // console.log(resp)
+        if(resp.statusText=='No Content'){
           this.makeToast("Receita Deletada com sucesso",'success')
           this.$router.push(`/receitas`)
         }
