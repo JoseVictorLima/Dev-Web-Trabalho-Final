@@ -31,7 +31,7 @@ const routes = [
   },
 
   {
-    path: '/cadastrarreceita',
+    path: '/receitas/new',
     name: 'cadastrarreceita',
     component: () => import('../views/cadastrarReceita.vue')
   },
@@ -47,9 +47,14 @@ const routes = [
   // },
 
   {
-    path: '/receita/:id',
+    path: '/receitas/:id',
     name: 'receita',
     component: () => import('../views/Receita.vue')
+  },
+  {
+    path: '/receitas/:id/edit',
+    name: 'receitaEdit',
+    component: () => import('../views/cadastrarReceita.vue')
   },
 ]
 

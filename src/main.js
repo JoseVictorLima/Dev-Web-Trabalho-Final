@@ -11,6 +11,8 @@ import Toast from "vue-toastification";
 import "vue-toastification/dist/index.css";
 import * as services from "./services/";
 import './mixins'
+import vSelect from "vue-select";
+import "vue-select/dist/vue-select.css"
 
 Vue.prototype.$services = services;
 
@@ -26,6 +28,7 @@ new Vue({
   BootstrapVue,
   Styles,
   Toast,
+  vSelect,
   // axios,
   render: h => h(App)
 }).$mount('#app')

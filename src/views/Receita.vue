@@ -5,7 +5,8 @@
     </div>
     <div v-if="receita!=undefined" class="container text-center row recipe-container">
       <div v-if="receita.id!=undefined && this.$store.state.usuarioLogado.id!=undefined" class="col-1">
-        <div v-if="this.$store.state.usuarioLogado.id==receita.usuarioId">
+        <div class="btn-group" role="group" v-if="this.$store.state.usuarioLogado.id==receita.usuarioId">
+          <button class="btn btn-success" @click="editar(receita.id)" type="button">Editar</button>
           <button class="btn btn-danger" @click="deletar(receita.id)" type="button">Apagar</button>
           <br>
         </div>
@@ -38,7 +39,7 @@
             <div class="col-12">
               <div class="col-12 text-center preparo-title">Ingredientes</div>
               <div v-for="(igrediente,index) of this.receita.igredientes" :key="index" class="col-12">
-                <li>{{igrediente.value}} {{igrediente.label}}</li>
+                <li>{{igrediente.unidade=='NENHUMA' ? "" : igrediente.value}} {{igrediente.unidade=='NENHUMA' ? "" : covertUnidadeExibition(igrediente.unidade)}} {{igrediente.label}}</li>
               </div>
             </div>
           </div>
@@ -107,6 +108,10 @@ export default {
         this.receita = undefined
       }
       // this.receita = this.generateStaticRecipe(id)
+    },
+
+    editar(id){
+      this.$router.push(`/receitas/${id}/edit`)
     },
 
     async deletar(id){

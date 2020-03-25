@@ -1,4 +1,5 @@
 export * from "./ReceitaService"
+export * from "./IgredienteService"
 export * from "./Top3Service"
 export * from "./NovoService"
 export * from "./Auth"

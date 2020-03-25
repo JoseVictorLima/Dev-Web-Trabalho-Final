@@ -140,7 +140,7 @@ export default {
     //   this.makeToast("Teste de Toast")
     // },
     redirecinarReceita(id){
-      this.$router.push(`/receita/${id}`)
+      this.$router.push(`/receitas/${id}`)
     }
   }
 }

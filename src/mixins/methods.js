@@ -18,6 +18,7 @@ export default {
             }
         },
         redirect(path){
+            if(path=='back') this.$router.back().catch(err => {})
             if(path=='home') this.$router.push('/').catch(err => {})
             else this.$router.push(`/${path}`).catch(err => {})
         },
@@ -33,5 +34,30 @@ export default {
                 else this.$toast(`${message}`,config)
             }
         },
+        covertUnidadeExibition(unidade){
+          let covertedUnidade = unidade
+          if(unidade=='QUANTIDADE') covertedUnidade = ""
+          else if(unidade=='QUILO') covertedUnidade = "kg(s)"
+          else if(unidade=='GRAMA') covertedUnidade = "g(s)"
+          else if(unidade=='XICARA') covertedUnidade = "xícara(s) de"
+          else if(unidade=='XICARADECHA') covertedUnidade = "xícara(s) de chá de"
+          else if(unidade=='COLHER') covertedUnidade = "colher(es) de"
+          else if(unidade=='COLHERDESOPA') covertedUnidade = "colher(es) de sopa de"
+          // console.log(covertedUnidade)
+          return covertedUnidade
+        },
+        covertUnidade(unidade){
+          let covertedUnidade = unidade
+          if(unidade=='QUANTIDADE') covertedUnidade = "Quantidade"
+          else if(unidade=='QUILO') covertedUnidade = "Quilo(s)"
+          else if(unidade=='GRAMA') covertedUnidade = "Grama(s)"
+          else if(unidade=='XICARA') covertedUnidade = "Xícara(s)"
+          else if(unidade=='XICARADECHA') covertedUnidade = "Xícara(s) de chá"
+          else if(unidade=='COLHER') covertedUnidade = "Colher(es)"
+          else if(unidade=='COLHERDESOPA') covertedUnidade = "Colher(es) de sopa"
+          else if(unidade=='NENHUMA') covertedUnidade = "Nenhuma"
+          // console.log(covertedUnidade)
+          return covertedUnidade
+        }
     }
 }
