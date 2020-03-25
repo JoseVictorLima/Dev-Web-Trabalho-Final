@@ -26,6 +26,8 @@ v1.4.1 :Possibilidade de testar o Login e verificar se usuário esta cadastrado.
 ```
 v1.4.2 :Adição do vuex-persistedstate.
 ```
+v1.4.3 :Adição do vue-select.
+```
 
 ## Project setup
 ```
