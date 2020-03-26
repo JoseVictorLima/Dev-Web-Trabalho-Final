@@ -28,6 +28,8 @@ v1.4.2 :Adição do vuex-persistedstate.
 ```
 v1.4.3 :Adição do vue-select.
 ```
+v1.4.4 :Adição do vee validate e carregamento simples.
+```
 
 ## Project setup
 ```
