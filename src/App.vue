@@ -3,11 +3,20 @@
     <br>
     <Menu v-if="this.$router.currentRoute.path!='/login'"></Menu>
     <br>
+    <!-- <pre>{{this.$store.state.isLoading}}</pre> -->
     <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div> -->
-    <router-view/>
+    <div v-show="this.$store.state.isLoading==true" class="container" style="display: block">
+      <!-- <img src="http://media.giphy.com/media/FwviSlrsfa4aA/giphy.gif" style="width:150px;height:150px;" /> -->
+      <br>
+      <h2>Carregando....</h2>
+      <br>
+    </div>
+    <div v-show="this.$store.state.isLoading!=true">
+      <router-view/>
+    </div>
     <custom-footer></custom-footer>
   </div>
 </template>

@@ -11,12 +11,14 @@ import Toast from "vue-toastification";
 import "vue-toastification/dist/index.css";
 import * as services from "./services/";
 import './mixins'
-import vSelect from "vue-select";
-import "vue-select/dist/vue-select.css"
+// import vSelect from "vue-select";
+// import "vue-select/dist/vue-select.css"
+// import { ValidationProvider, extend } from 'vee-validate';
 
 Vue.prototype.$services = services;
 
 Vue.config.productionTip = false
+
 
 Vue.use(
   Toast,{closeOnClick:true}
@@ -28,7 +30,6 @@ new Vue({
   BootstrapVue,
   Styles,
   Toast,
-  vSelect,
   // axios,
   render: h => h(App)
 }).$mount('#app')

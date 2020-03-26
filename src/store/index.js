@@ -7,7 +7,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   plugins: [createPersistedState()],
   state: {
-    usuarioLogado:{}
+    usuarioLogado:{},
+    isLoading:false
   },
   mutations: {
     setUsuario(state, usuario){
@@ -16,6 +17,9 @@ export default new Vuex.Store({
     unSetUsuario(state){
       state.usuarioLogado = {}
     },
+    changeLoading(state,bool = false){
+      state.isLoading = bool
+    }
   },
   getters:{
     getUsuario: state => state.usuarioLogado,

@@ -89,8 +89,10 @@ export default {
   methods:{
     async init(){
       // try{
+        this.loading()
         await this.getTop3()
         await this.getNovos()
+        this.notloading()
       // }catch(erro){
       //   this.makeToast("Não foi possivel carregar as receitas! Tente outra vez mais tarde!",'error')
       // }

@@ -1,19 +1,31 @@
 <template>
   <div class="about">
     <div class="container">
-      <form class="row">
+      <ValidationObserver v-slot="{ handleSubmit}">
+      <form class="row" @submit.prevent="handleSubmit(salvar)">
         <div class="form-group col-12">
-          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nome da receita" v-model="receita.nome">
+          <validation-provider  rules="required" v-slot="{ errors }">
+            <label for="nome">Nome*</label>
+            <input type="text" class="form-control" id="nome" placeholder="Nome da receita" v-model="receita.nome">
+            <span class="error">{{ errors[0] }}</span>
+          </validation-provider>
         </div>
         <div class="form-group col-12">
           <label for="exampleFormControlFile1">Imagem</label>
           <input type="file" class="form-control-file" id="exampleFormControlFile1" @change="fileSelected">
         </div>
         <div class="form-group col-6">
-          <label for="receitaTempo">Tempo</label>
-          <input type="text" class="form-control" id="receitaTempo" placeholder="Tempo de preparo" v-model="receita.tempo">
-          <label for="receitaRendimento">Porção</label>
-          <input type="text" class="form-control" id="receitaRendimento" placeholder="Rendimento" v-model="receita.rendimento">
+          <validation-provider  rules="required" v-slot="{ errors }">
+            <label for="receitaTempo">Tempo de Preparo*</label>
+            <input type="time" class="form-control" id="receitaTempo" placeholder="Tempo de preparo" v-model="receita.tempo" min="00:00">
+            <span class="error">{{ errors[0] }}</span>
+          </validation-provider>
+          <br>
+          <validation-provider  rules="min_value:0" v-slot="{ errors }">
+            <label for="receitaRendimento">Porções*</label>
+            <input type="number" class="form-control" id="receitaRendimento" placeholder="Rendimento" v-model="receita.rendimento">
+            <span class="error">{{ errors[0] }}</span>
+          </validation-provider>
         </div>
         <div class="form-group col-12">
           <label style="margin-right: 1% !important;" for="receitaAdd">Ingredientes</label>
@@ -23,9 +35,15 @@
             <hr>
             <div class="col-12 row">
               <div class="col-3" v-if="igrediente.unidade.value!='NENHUMA'">
-                <label :for="`label${index}`">Quantidade: </label>
-                <br>
-                <input type="number" :id="`label${index}`" :name="`label${index}`" v-model="igrediente.value">
+                <validation-provider  rules="min_value:0" v-slot="{ errors }">
+                  <label :for="`label${index}`">Valor: </label>
+                  <br>
+                  <input type="number" :id="`label${index}`" :name="`label${index}`" v-model="igrediente.value">
+                  <span class="error">
+                      <br>
+                      {{ errors[0] }}
+                  </span>
+                </validation-provider>
               </div>
               <div class="col-3">
                 <label :for="`label${index}`">Unidade: </label>
@@ -33,9 +51,15 @@
                 <v-select :options="unidadesMedida" v-model="igrediente.unidade"></v-select>
               </div>
               <div class="col-3">
-                <label :for="`label${index}`">Nome: </label>
-                <br>
-                <input type="text" :id="`label${index}`" :name="`label${index}`" placeholder="Cenoura" v-model="igrediente.label">
+                <validation-provider  rules="required" v-slot="{ errors }">
+                  <label :for="`label${index}`">Nome*: </label>
+                  <br>
+                  <input type="text" :id="`label${index}`" :name="`label${index}`" placeholder="Cenoura" v-model="igrediente.label">
+                  <span class="error">
+                    <br>
+                    {{ errors[0] }}
+                  </span>
+                </validation-provider>
               </div>
               <div class="col-1">
                 <button @click="removerIgrediente(igrediente)" class="btn btn-danger" type="button">Remover</button>
@@ -44,24 +68,32 @@
           </div>
         </div>
         <div class="form-group col-12">
-          <label for="exampleFormControlTextarea1">Preparo</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" v-model="receita.preparo"></textarea>
+          <validation-provider  rules="required" v-slot="{ errors }">
+            <label for="exampleFormControlTextarea1">Preparo*</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" v-model="receita.preparo"></textarea>
+            <span class="error">{{ errors[0] }}</span>
+          </validation-provider>
         </div>
-        <div class="col-3">
-          <button type="button" class="btn btn-primary" @click="salvar()">Salvar</button>
+        <div class="col-12">
+          <font size="2px">*Campos obrigatorios</font>
+          <br>
+          <br>
+          <button type="submit" class="btn btn-primary">Salvar</button>
           <button type="button" class="btn btn-secondary" @click="redirect('back')">Cancelar</button>
         </div>
       </form>
+      </ValidationObserver>
     </div>
     <br>
   </div>
 </template>
 <script>
-import vSelect from "vue-select";
+// import vSelect from "vue-select";
+
 export default {
-  components:{
-    vSelect,
-  },
+//   components:{
+//     vSelect,
+//   },
   data(){
     return{
       unidadesMedida:[
@@ -100,6 +132,7 @@ export default {
       ],
       igredientes:[],
       receita:{
+        rendimento: 0,
         igredientes:[],
         preparo:undefined,
       }
@@ -112,13 +145,16 @@ export default {
 
   methods:{
     init(){
+
       this.load()
     },
 
     async load(){
+      this.loading()
       if(this.$route.params.id!=undefined){
         await this.findOne(this.$route.params.id)
       }
+      this.notloading()
     },
 
     async findOne(id){
@@ -193,7 +229,6 @@ export default {
 
     async salvar(){
       try{
-        // let igredientesCopy = new Object(this.igredientes)
         this.receita.igredientes = this.igredientes
         for(let igrediente of this.receita.igredientes){
           igrediente.unidade = igrediente.unidade.value
@@ -211,7 +246,7 @@ export default {
           this.$router.push('/')
         }
       }catch(error){
-        // console.log(error)
+        console.log(error)
         this.makeToast("Não foi possivel salvar! Tente outra vez mais tarde!",'error')
       }
     }
@@ -219,6 +254,9 @@ export default {
 }
 </script>
 <style scoped>
+.error{
+  color: red;
+}
 >>> .v-select .vs__dropdown-toggle .vs__actions .vs__clear {
     display: none !important;
 }

@@ -89,8 +89,10 @@ export default {
 
   methods:{
     async init(){
+      this.loading()
       let id = this.$route.params.id
       await this.getReceita(id)
+      this.notloading()
     },
 
     async getReceita(id){

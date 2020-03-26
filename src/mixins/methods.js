@@ -18,7 +18,7 @@ export default {
             }
         },
         redirect(path){
-            if(path=='back') this.$router.back().catch(err => {})
+            if(path=='back') this.$router.back()
             if(path=='home') this.$router.push('/').catch(err => {})
             else this.$router.push(`/${path}`).catch(err => {})
         },
@@ -58,6 +58,12 @@ export default {
           else if(unidade=='NENHUMA') covertedUnidade = "Nenhuma"
           // console.log(covertedUnidade)
           return covertedUnidade
-        }
+        },
+        loading(){
+          this.$store.commit('changeLoading',true)
+        },
+        notloading(){
+          this.$store.commit('changeLoading',false)
+        },
     }
 }
