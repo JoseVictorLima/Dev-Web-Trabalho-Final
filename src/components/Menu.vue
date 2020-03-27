@@ -17,18 +17,18 @@
                 <div class="col-2 flex-div" v-if="this.$store.state.usuarioLogado.id==undefined">
                     <span class="hidden-link middler" @click="redirect('login')"><b>Login</b></span>
                 </div>
-                <div class="col-2 flex-div" v-if="this.$store.state.usuarioLogado.id!=undefined">
+                <!-- <div class="col-2 flex-div" v-if="this.$store.state.usuarioLogado.id!=undefined">
                     <span class="hidden-link middler" @click="logof()"><b>Sair</b></span>
-                </div>
+                </div> -->
             </div>
-            <div v-if="this.$store.state.usuarioLogado.id!=undefined" class="col-12 row">
+            <!-- <div v-if="this.$store.state.usuarioLogado.id!=undefined" class="col-12 row">
                 <div class="col-12 image-div">
                     <div class="photo-container">
                         <img v-if="this.$store.state.usuarioLogado.imagem==undefined" src="../assets/img/image_not_found.png" height="100%" width="100%" class="circular-photo">
                         <img v-if="this.$store.state.usuarioLogado.imagem!=undefined" :src="`${this.$store.state.usuarioLogado.imagem}`" height="100%" width="100%" class="circular-photo">
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>    
     </div>
 </template>

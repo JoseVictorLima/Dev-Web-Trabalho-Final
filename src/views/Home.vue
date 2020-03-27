@@ -2,7 +2,10 @@
   <div class="home">
       
       <!-- <button @click="meuToast()">Toast</button> -->
-      <div class="row" style="max-width:1300px; min-height: 200px;">
+      <div v-if="this.top3==undefined && this.novos==undefined" class="container text-center row recipe-container">
+              <img src="../assets/img/page_not_found.png" alt="">
+      </div>
+      <div v-if="this.top3!=undefined && this.novos!=undefined" class="row" style="max-width:1300px; min-height: 200px;">
         <div class="col-md-6 container-special">
           <!-- <pre>{{this.usuarioLogado}}</pre> -->
           <h4>Receitas do Dia</h4>
@@ -89,10 +92,10 @@ export default {
   methods:{
     async init(){
       // try{
-        this.loading()
+        this.carregando()
         await this.getTop3()
         await this.getNovos()
-        this.notloading()
+        this.notcarregando()
       // }catch(erro){
       //   this.makeToast("Não foi possivel carregar as receitas! Tente outra vez mais tarde!",'error')
       // }

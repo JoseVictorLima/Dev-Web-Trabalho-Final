@@ -12,7 +12,7 @@
         </div>
         <div class="form-group col-12">
           <label for="exampleFormControlFile1">Imagem</label>
-          <input type="file" class="form-control-file" id="exampleFormControlFile1" @change="fileSelected">
+          <input :disabled="isLoading" type="file" class="form-control-file" id="exampleFormControlFile1" @change="fileSelected">
         </div>
         <div class="form-group col-6">
           <validation-provider  rules="required" v-slot="{ errors }">
@@ -29,7 +29,7 @@
         </div>
         <div class="form-group col-12">
           <label style="margin-right: 1% !important;" for="receitaAdd">Ingredientes</label>
-          <button class="btn btn-success" @click="adicionarNovoIgrediente()" type="button" >+</button>
+          <button :disabled="isLoading" class="btn btn-success" @click="adicionarNovoIgrediente()" type="button" >+</button>
           <div class="col-12" id=receitaAdd v-for="(igrediente,index) of igredientes" :key="index">
             <br>
             <hr>
@@ -48,7 +48,7 @@
               <div class="col-3">
                 <label :for="`label${index}`">Unidade: </label>
                 <br>
-                <v-select :options="unidadesMedida" v-model="igrediente.unidade"></v-select>
+                <v-select v-if="isLoading==false" :options="unidadesMedida" v-model="igrediente.unidade"></v-select>
               </div>
               <div class="col-3">
                 <validation-provider  rules="required" v-slot="{ errors }">
@@ -62,7 +62,7 @@
                 </validation-provider>
               </div>
               <div class="col-1">
-                <button @click="removerIgrediente(igrediente)" class="btn btn-danger" type="button">Remover</button>
+                <button :disabled="isLoading" @click="removerIgrediente(igrediente)" class="btn btn-danger" type="button">Remover</button>
               </div>
             </div>
           </div>
@@ -78,8 +78,8 @@
           <font size="2px">*Campos obrigatorios</font>
           <br>
           <br>
-          <button type="submit" class="btn btn-primary">Salvar</button>
-          <button type="button" class="btn btn-secondary" @click="redirect('back')">Cancelar</button>
+          <button :disabled="isLoading" type="submit" class="btn btn-primary">Salvar</button>
+          <button :disabled="isLoading" type="button" class="btn btn-secondary" @click="redirect('back')">Cancelar</button>
         </div>
       </form>
       </ValidationObserver>
@@ -96,6 +96,7 @@ export default {
 //   },
   data(){
     return{
+      isLoading: false,
       unidadesMedida:[
         {
           label:"Quantidade",
@@ -150,11 +151,18 @@ export default {
     },
 
     async load(){
-      this.loading()
+      this.carregando()
+      console.log("Aqui")
+      // this.$router.go()
+      this.receita = {
+        rendimento: 0,
+        igredientes:[],
+        preparo:undefined,
+      }
       if(this.$route.params.id!=undefined){
         await this.findOne(this.$route.params.id)
       }
-      this.notloading()
+      this.notcarregando()
     },
 
     async findOne(id){
@@ -191,6 +199,7 @@ export default {
     },
 
     async removerIgrediente(igrediente){
+      this.isLoading = true
       if(igrediente!=undefined){
         let index = undefined
         index = this.igredientes.indexOf(igrediente)
@@ -203,6 +212,7 @@ export default {
           if(index!=undefined) this.igredientes.splice(index,1)
         }
       }
+      this.isLoading = false
     },
 
      fileSelected(event) {
@@ -229,6 +239,7 @@ export default {
 
     async salvar(){
       try{
+        this.isLoading = true
         this.receita.igredientes = this.igredientes
         for(let igrediente of this.receita.igredientes){
           igrediente.unidade = igrediente.unidade.value
@@ -244,9 +255,11 @@ export default {
         if(resp && resp.data || resp && resp.statusText=="No Content"){
           this.makeToast("Receita salva com sucesso!",'success')
           this.$router.push('/')
+          this.isLoading = false
         }
       }catch(error){
-        console.log(error)
+        // console.log(error)
+        this.isLoading = false
         this.makeToast("Não foi possivel salvar! Tente outra vez mais tarde!",'error')
       }
     }

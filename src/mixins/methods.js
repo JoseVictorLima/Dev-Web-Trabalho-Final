@@ -59,10 +59,10 @@ export default {
           // console.log(covertedUnidade)
           return covertedUnidade
         },
-        loading(){
+        carregando(){
           this.$store.commit('changeLoading',true)
         },
-        notloading(){
+        notcarregando(){
           this.$store.commit('changeLoading',false)
         },
     }

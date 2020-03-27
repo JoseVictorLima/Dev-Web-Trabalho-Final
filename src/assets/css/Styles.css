@@ -38,5 +38,14 @@
     padding: 2%;
     /* max-height: 90%; */
   }
-
+  .container-carregando{
+    background-color: rgba(255, 255, 255, 0.842);
+    color: black;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    margin: 1% !important;
+    max-width: 98%;
+    min-height: 250px;
+    padding: 2%;
+    /* max-height: 90%; */
+  }
   /* container Section >*/
