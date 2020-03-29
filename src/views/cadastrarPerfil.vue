@@ -59,9 +59,7 @@
             Localização
           </div>
         </div>
-      </form>
-      
-                        
+                                    
       <div class="form-row">
         <div class="col-md-2 my-1">
           <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
@@ -168,8 +166,9 @@
         <label class="form-check-label" for="defaultCheck1">
           Eu aceito os Termos de Uso e Política de Privacidade do *********.
         </label>
-      </div>
+        </div>
       <button type="button" class="btn btn-primary" @click="Cadastrar()">Cadastrar</button>
+      </form>
     </div>
   </div>
 </div>
