@@ -23,7 +23,11 @@ const routes = [
     name: 'login',
     component: () => import('../views/Login.vue')
   },
-
+  {
+    path: '/cadastrarperfil',
+    name: 'cadastrarperfil',
+    component: () => import('../views/cadastrarPerfil.vue')
+  },
   {
     path: '/recuperarsenha',
     name: 'recuperarsenha',
