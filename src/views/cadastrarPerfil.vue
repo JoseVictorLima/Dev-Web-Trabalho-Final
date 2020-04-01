@@ -1,11 +1,11 @@
 <template>
 <div class="about">
   <div class="container">
-    <div class="row-12">
+    <!-- <div class="row-12">
       <center><h3>Bem Vindo</h3></center>
       <br>
-    </div>
-    <div class="row-12" >
+    </div> -->
+    <!-- <div class="row-12" >
       <center>
         <button class="loginBtn loginBtn--facebook">
           Login com Facebook
@@ -28,26 +28,31 @@
       <div class="form-group col-md-4">
         <hr>  
       </div>
-    </div>
+    </div> -->
     <div>
       <form class="row-12">
         <div class="row-12">
-          <center><h6>Cadastre-se</h6></center>
+          <center><h4>Cadastro</h4></center>
+          <br>
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <input type="text" class="form-control" id="inputNome" placeholder="Nome">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" id="nome" placeholder="Nome">
           </div>
           <div class="form-group col-md-6">
-            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Email">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <input type="password" class="form-control" id="inputSenha" placeholder="Senha">
+            <label for="senha">Senha</label>
+            <input type="password" class="form-control" id="senha" placeholder="Senha">
           </div>
           <div class="form-group col-md-6">
-            <input type="password" class="form-control" id="inputConfSenha" placeholder="Confirmar Senha">
+            <label for="confSenha">Confirmar Senha</label>
+            <input type="password" class="form-control" id="confSenha" placeholder="Confirmar Senha">
           </div>
         </div>
                     
@@ -56,14 +61,18 @@
             Data de Nascimeto
           </div>
           <div class="form-group col-md-6">
-            Localização
+            Sexo
           </div>
+          <!-- <div class="form-group col-md-6">
+            Localização
+          </div> -->
         </div>
                                     
       <div class="form-row">
         <div class="col-md-2 my-1">
-          <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-          <option selected>Dia</option>
+          <!-- <select class="custom-select mr-sm-2" id="inlineFormCustomSelect"> -->
+          <v-select :options="dias" v-model="dia"></v-select>
+          <!-- <option selected>Dia</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -95,10 +104,11 @@
             <option value="29">29</option>
             <option value="30">30</option>
             <option value="31">31</option>
-          </select>
+          </select> -->
         </div>
         <div class="col-md-2 my-1">
-          <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+          <v-select :options="meses" v-model="mes"></v-select>
+          <!-- <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
             <option selected>Mês</option>
             <option value="1">Janeiro</option>
             <option value="2">Fevereiro</option>
@@ -112,10 +122,11 @@
             <option value="10">Outubro</option>
             <option value="11">Novembro</option>
             <option value="12">Dezembro</option>
-          </select>
+          </select> -->
         </div>
         <div class="col-md-2 my-1">
-          <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+          <v-select :options="anos" v-model="ano"></v-select>
+          <!-- <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
             <option selected>Ano</option>
             <option value="1">2000</option>
             <option value="2">2001</option>
@@ -129,22 +140,40 @@
             <option value="10">2009</option>
             <option value="11">2010</option>
             <option value="12">2011</option>
-          </select>
+          </select> -->
         </div>
         <div class="col-md-6 my-1">
+          <div class="form-row">
+          <div class="form-group col-md-6">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Feminino">
+              <label class="form-check-label" for="inlineRadio1">Feminino</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Masculino">
+              <label class="form-check-label" for="inlineRadio2">Masculino</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="Outro">
+              <label class="form-check-label" for="inlineRadio3">Outro</label>
+            </div>
+          </div>
+        </div>
+        </div>
+        <!-- <div class="col-md-6 my-1">
           <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
             <option selected>País</option>
             <option value="1">Brasil</option>
           </select>
-        </div>
+        </div> -->
       </div>
-
-      <div class="form-row">
-        <div class="form-group col-md-6">
+      <br>
+      <!-- <div class="form-row"> -->
+        <!-- <div class="form-group col-md-6">
           Sexo
-        </div>
-      </div>
-      <div class="form-row">
+        </div> -->
+      <!-- </div> -->
+      <!-- <div class="form-row">
         <div class="form-group col-md-6">
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="opcao1">
@@ -159,7 +188,7 @@
             <label class="form-check-label" for="inlineRadio3">Outro</label>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <div class="form-check col-md-12">
         <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
@@ -167,6 +196,7 @@
           Eu aceito os Termos de Uso e Política de Privacidade do *********.
         </label>
         </div>
+      <br>
       <button type="button" class="btn btn-primary" @click="Cadastrar()">Cadastrar</button>
       </form>
     </div>
@@ -174,7 +204,76 @@
 </div>
 </template>
 
-<style>
+<script>
+export default {
+  data(){
+    return{
+      dia:{label:1,value:1},
+      dias:[],
+      mes:{label:"Janeiro",value:1},
+      meses:[
+        {label:"Janeiro",value:1},
+        {label:"Fevereiro",value:2},
+        {label:"Março",value:3},
+        {label:"Abri",value:4},
+        {label:"Maio",value:5},
+        {label:"Junho",value:6},
+        {label:"Julho",value:7},
+        {label:"Agosto",value:8},
+        {label:"Setembro",value:9},
+        {label:"Outubro",value:10},
+        {label:"Novembro",value:11},
+        {label:"Dezembro",value:12},
+      ],
+      ano:{label:"2000", value:2000},
+      anos:[]
+    }
+  },
+
+  watch:{
+    mes(){
+      this.getDays()
+    }
+  },
+
+  mounted(){
+    this.init()
+  },
+
+  methods:{
+    init(){
+      this.load()
+    },
+
+    load(){
+      this.getDays()
+      this.generateYears(1950,2050)
+    },
+
+    getDays(){
+      let max = 28
+      if(this.mes.value == 1 || this.mes.value == 3 || this.mes.value == 5 || this.mes.value == 7 || this.mes.value == 8 || this.mes.value == 10 || this.mes.value == 12) max = 31
+      else if(this.mes.value == 4 || this.mes.value == 6 || this.mes.value == 9 || this.mes.value == 11) max = 30
+      let newArray = []
+      for(let i = 1;i<=max;i++){
+        this.dias.push({ label:i ,value:i })
+      }
+    },
+
+    generateYears(min,max){
+      for(let i = min;i<=max;i++){
+        this.anos.push({ label:i ,value:i })
+      }
+    },
+  },
+}
+</script>
+
+<style scoped>
+>>> .v-select .vs__dropdown-toggle .vs__actions .vs__clear {
+    display: none !important;
+}
+
 /* Shared */
 .loginBtn {
   box-sizing: border-box;
