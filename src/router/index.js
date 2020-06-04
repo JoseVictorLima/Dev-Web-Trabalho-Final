@@ -24,8 +24,13 @@ const routes = [
     component: () => import('../views/Login.vue')
   },
   {
-    path: '/cadastrarperfil',
-    name: 'cadastrarperfil',
+    path: '/usuario/new',
+    name: 'novousuario',
+    component: () => import('../views/cadastrarPerfil.vue')
+  },
+  {
+    path: '/usuario/:id/edit',
+    name: 'editarusuario',
     component: () => import('../views/cadastrarPerfil.vue')
   },
   {

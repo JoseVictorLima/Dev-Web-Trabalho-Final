@@ -15,6 +15,9 @@
                     <span class="hidden-link middler" @click="redirect('receitas/new')"><b>Nova Receita</b></span>
                 </div>
                 <div class="col-2 flex-div" v-if="this.$store.state.usuarioLogado.id==undefined">
+                    <span class="hidden-link middler" @click="redirect('usuario/new')"><b>Criar Conta</b></span>
+                </div>
+                <div class="col-2 flex-div" v-if="this.$store.state.usuarioLogado.id==undefined">
                     <span class="hidden-link middler" @click="redirect('login')"><b>Login</b></span>
                 </div>
                 <!-- <div class="col-2 flex-div" v-if="this.$store.state.usuarioLogado.id!=undefined">

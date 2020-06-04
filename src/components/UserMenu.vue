@@ -3,11 +3,11 @@
         <div class="dropdown">
             <button id="user-menu" class="dropbtn close" @click="openClose()">{{this.content}}</button>
             <div id="content" :disabled="this.show==false" class="dropdown-content-none">
-                <div class="photo-container">
-                    <img v-if="this.$store.state.usuarioLogado.imagem==undefined" src="../assets/img/image_not_found.png" height="100%" width="100%" class="circular-photo">
-                    <img v-if="this.$store.state.usuarioLogado.imagem!=undefined" :src="`${this.$store.state.usuarioLogado.imagem}`" height="100%" width="100%" class="circular-photo">
+                <div class="photo-container text-center">
+                    <img v-if="this.$store.state.usuarioLogado.imagem==undefined" src="../assets/img/image_not_found.png" class="circular-photo image-size">
+                    <img v-if="this.$store.state.usuarioLogado.imagem!=undefined" :src="`${this.$store.state.usuarioLogado.imagem}`" class="circular-photo image-size">
                 </div>
-                <a href="#" class="text-center">Editar Perfil</a>
+                <a href="#" class="text-center" @click="redirect(`usuario/${$store.state.usuarioLogado.id}/edit`)">Editar Perfil</a>
                 <a href="#" class="text-center" @click="logof()">Sair</a>
             </div>
         </div>
@@ -59,6 +59,14 @@ export default {
         z-index: 10;
     }
  */
+
+.image-size{
+    max-width: 55%;
+    max-height: 100%;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+}
 
 .open{
     transform: translateY(0px);

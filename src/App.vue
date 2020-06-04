@@ -19,7 +19,11 @@
     <div v-show="this.$store.state.isLoading!=true">
       <router-view :key="$route.fullPath"/>
     </div>
-    <custom-footer></custom-footer>
+    <div class="wrapper">
+      <div class="push"></div>
+      <custom-footer></custom-footer>
+    </div>
+    <div class="footer"></div>
   </div>
 </template>
 
@@ -40,6 +44,21 @@ export default {
 </script>
 
 <style>
+
+html, body {
+    height: 100%;
+}
+
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -142px; /* the bottom margin is the negative value of the footer's height */
+}
+.footer, .push {
+    height: 142px; /* .push must be the same height as .footer */
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

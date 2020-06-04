@@ -11,8 +11,8 @@
           </validation-provider>
         </div>
         <div class="form-group col-12">
-          <label for="exampleFormControlFile1">Imagem</label>
-          <input :disabled="isLoading" type="file" class="form-control-file" id="exampleFormControlFile1" @change="fileSelected">
+          <label for="imagem">Imagem</label>
+          <input :disabled="isLoading" type="file" class="form-control-file" id="imagem" @change="fileSelected">
         </div>
         <div class="form-group col-6">
           <validation-provider  rules="required" v-slot="{ errors }">
@@ -152,7 +152,7 @@ export default {
 
     async load(){
       this.carregando()
-      console.log("Aqui")
+      // console.log("Aqui")
       // this.$router.go()
       this.receita = {
         rendimento: 0,
