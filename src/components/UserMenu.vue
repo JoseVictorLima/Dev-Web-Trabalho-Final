@@ -7,6 +7,7 @@
                     <img v-if="this.$store.state.usuarioLogado.imagem==undefined" src="../assets/img/image_not_found.png" class="circular-photo image-size">
                     <img v-if="this.$store.state.usuarioLogado.imagem!=undefined" :src="`${this.$store.state.usuarioLogado.imagem}`" class="circular-photo image-size">
                 </div>
+                <a href="#" class="text-center" @click="redirect(`minhasreceitas`)">Minhas Receitas</a>
                 <a href="#" class="text-center" @click="redirect(`usuario/${$store.state.usuarioLogado.id}/edit`)">Editar Perfil</a>
                 <a href="#" class="text-center" @click="logof()">Sair</a>
             </div>

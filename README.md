@@ -30,6 +30,10 @@ v1.4.3 :Adição do vue-select.
 ```
 v1.4.4 :Adição do vee validate e carregamento simples.
 ```
+v1.4.5 :Adição da edição de usuario.
+```
+v1.4.6 :Adição de uma página para visualizar as receitas do usuario.
+```
 
 ## Project setup
 ```

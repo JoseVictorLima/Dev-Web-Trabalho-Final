@@ -45,6 +45,11 @@ const routes = [
     component: () => import('../views/cadastrarReceita.vue')
   },
   {
+    path: '/minhasreceitas',
+    name: 'minhasreceitas',
+    component: () => import('../views/MinhaReceitaLista.vue')
+  },
+  {
     path: '/receitas',
     name: 'receitas',
     component: () => import('../views/ReceitaLista.vue')
